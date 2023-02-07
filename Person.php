@@ -61,7 +61,7 @@ class Person {
     {
         $con = $this->connection();
         if ($this->getId() === 0) {
-            $stmt = $con->prepare("SELECT * FROM person");
+            $stmt = $con->prepare("SELECT * FROM person ORDER BY id ASC");
             if ($stmt->execute()) {
                 return $stmt->fetchall(\PDO::FETCH_ASSOC);
         } else if ($this->getId() > 0) {
